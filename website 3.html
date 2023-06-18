@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language Support Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    label {
+      font-weight: bold;
+    }
+    
+    textarea {
+      width: 300px;
+      height: 150px;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="issue-heading">Tell us about your issue</h1>
+  
+  <form>
+    <label for="language-select">Select your language:</label>
+    <select id="language-select" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="de">German</option>
+      <option value="ru">Russian</option>
+      <option value="pl">Polish</option>
+      <option value="ro">Romanian</option>
+    </select>
+    
+    <label for="issue-text">Describe your issue:</label>
+    <textarea id="issue-text" placeholder="Type your issue here..."></textarea>
+    
+    <button type="button" onclick="sendIssue()">Send</button>
+  </form>
+  
+  <script>
+    function changeLanguage() {
+      var languageSelect = document.getElementById("language-select");
+      var selectedLanguage = languageSelect.value;
+      
+      var issueHeading = document.getElementById("issue-heading");
+      
+      // Update the text based on the selected language
+      if (selectedLanguage === "de") {
+        issueHeading.innerText = "Beschreiben Sie Ihr Problem";
+      } else if (selectedLanguage === "ru") {
+        issueHeading.innerText = "Опишите вашу проблему";
+      } else if (selectedLanguage === "pl") {
+        issueHeading.innerText = "Opisz swój problem";
+      } else if (selectedLanguage === "ro") {
+        issueHeading.innerText = "Descrieți problema dumneavoastră";
+      } else {
+        issueHeading.innerText = "Tell us about your issue";
+      }
+    }
+    
+    function sendIssue() {
+      var languageSelect = document.getElementById("language-select");
+      var selectedLanguage = languageSelect.value;
+      
+      var issueText = document.getElementById("issue-text").value;
+      
+      // Here, you can add code to handle the issue data, such as sending it to a server or storing it locally.
+      // You can use the selectedLanguage and issueText variables to perform the necessary actions.
+      
+      // For now, let's display an alert with the selected language and issue text.
+      alert("Language: " + selectedLanguage + "\nIssue: " + issueText);
+    }
+  </script>
+</body>
+</html>
